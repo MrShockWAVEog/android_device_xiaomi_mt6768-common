@@ -16,6 +16,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 # Default dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# API
+BOARD_SHIPPING_API_LEVEL := 31
+
 # Audio
 PRODUCT_PACKAGES += \
     ViPER4Android \
