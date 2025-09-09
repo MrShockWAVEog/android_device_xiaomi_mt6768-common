@@ -121,6 +121,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
 
+# UFFD GC
+PRODUCT_ENABLE_UFFD_GC := true
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
