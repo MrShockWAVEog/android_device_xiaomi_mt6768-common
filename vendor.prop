@@ -260,6 +260,8 @@ ro.vendor.mtk_shutdown_support=0
 init.userspace_reboot.is_supported=true
 
 # SurfaceFlinger
+debug.hwui.skia_tracing_enabled=false
+debug.hwui.skia_use_perfetto_track_events=false
 ro.surface_flinger.primary_display_orientation=ORIENTATION_0
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.enable_frame_rate_override=false
