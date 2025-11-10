@@ -2,5 +2,6 @@ runtime_resource_overlay {
     name: "FrameworksResOverlayMT6768",
     sdk_version: "current",
     resource_dirs: ["res"],
+    aaptflags: ["--keep-raw-values"],
     vendor: true,
 }
