@@ -33,6 +33,11 @@ on init
     write /dev/cpuset/system-background/cpus 0-2
     write /dev/cpuset/top-app/cpus 0-7
 
+on post-fs
+    # Keep dex2oat on four LITTLE CPUs to reduce compilation contention.
+    setprop dalvik.vm.dex2oat-cpu-set 2,3,4,5
+    setprop dalvik.vm.dex2oat-threads 4
+
 on enable-low-power
     # Runtime FS tuning
     # we should adjust the setting upon boot_complete for runtime performance
