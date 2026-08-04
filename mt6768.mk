@@ -115,6 +115,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.example
 
+USE_OPENGL_RENDERER := true
+
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light-service.lineage
