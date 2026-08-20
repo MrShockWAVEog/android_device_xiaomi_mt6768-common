@@ -95,3 +95,4 @@ renderthread.skia.reduceopstasksplitting=true
 #         (186572kB < 274440kB) and thrashing (31%)
 # Both numbers in that message are the overrides, not stock thresholds.
 
+ro.lunaris.maintainer=MrShockWAVEog
