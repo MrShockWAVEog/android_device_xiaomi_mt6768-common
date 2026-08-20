@@ -84,3 +84,5 @@ ro.zram.periodic_wb_delay_hours=24
 debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
 renderthread.skia.reduceopstasksplitting=true
+
+ro.lunaris.maintainer=MrShockWAVEog

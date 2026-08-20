@@ -279,3 +279,27 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mt6768-common/mt6768-common-vendor.mk)
+
+TARGET_CUSTOM_UDFPS := false
+
+WITH_GMS := false
+
+WITH_GMS_COMMS_SUITE := false
+
+WITH_PIXEL_LAUNCHER := false
+
+TARGET_USE_MAPS := true
+
+TARGET_USE_FILES := false
+
+TARGET_USE_GPHOTOS := false
+
+TARGET_OPTIMIZED_DEXOPT := false
+
+SURFACE_FLINGER_BOOST := false
+
+TARGET_BOOT_ANIMATION_RES := 1080
+
+WITH_BCR := true
+
+BYPASS_CHARGE_SUPPORTED := false
