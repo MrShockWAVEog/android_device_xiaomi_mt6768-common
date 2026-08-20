@@ -279,3 +279,12 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mt6768-common/mt6768-common-vendor.mk)
+
+# Maintainer Name
+INFINITY_MAINTAINER := "MrShockWAVEog"
+
+# Whether the device supports Fingerprint On Display
+TARGET_HAS_UDFPS := false
+
+# Whether Including Google Apps
+WITH_GAPPS := false
