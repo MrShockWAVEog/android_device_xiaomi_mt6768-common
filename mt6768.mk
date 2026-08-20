@@ -279,3 +279,40 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mt6768-common/mt6768-common-vendor.mk)
+
+# Device config
+TARGET_HAS_UDFPS := false
+TARGET_SUPPORTS_BLUR := false
+TARGET_EXCLUDES_AUDIOFX := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Build config
+
+# append time of day to zip
+ALPHA_VERSION_APPEND_TIME_OF_DAY := true
+
+# TARGET_BUILD_PACKAGE options:
+# 1 - vanilla (default)
+# 2 - microg
+# 3 - gapps
+TARGET_BUILD_PACKAGE := 1
+
+# (valid only for GAPPS builds)
+TARGET_INCLUDE_GOOGLE_COMMS := true
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_SUPPORTS_CALL_RECORDING := true
+TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+
+# Debugging
+TARGET_INCLUDE_MATLOG := false
+WITH_ADB_INSECURE := false
+
+# Extras
+TARGET_INCLUDE_SIMPLE_TUNE := true
+
+# Maintainer
+ALPHA_BUILD_TYPE := Unofficial
+ALPHA_MAINTAINER := MrShockWAVEog
