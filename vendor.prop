@@ -133,6 +133,10 @@ persist.vendor.max.brightness=448
 ro.vendor.colorpick_adjust=true
 ro.vendor.cabc.enable=true
 
+# HWUI
+debug.hwui.target_cpu_time_percent=30
+debug.hwui.use_hint_manager=true
+
 # FM Radio
 ro.vendor.builtin_fm_antenna_support=1
 persist.vendor.connsys.fm_chipid=mt6631
