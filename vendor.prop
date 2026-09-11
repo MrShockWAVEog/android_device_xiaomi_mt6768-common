@@ -288,6 +288,7 @@ ro.surface_flinger.vsync_sf_event_phase_offset_ns=-10933333
 debug.sf.enable_transaction_tracing=false
 debug.sf.enable_gl_backpressure=1
 debug.sf.predict_hwc_composition_strategy=0
+debug.sf.enable_egl_image_tracker=0
 
 # TEE
 ro.vendor.mtk_tee_gp_support=1
