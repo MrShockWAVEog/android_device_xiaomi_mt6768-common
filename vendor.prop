@@ -199,7 +199,6 @@ ro.vendor.mtk_video_hevc_enc_support=1
 ro.vendor.pref_scale_enable_cfg=1
 vendor.mtk_thumbnail_optimization=true
 vendor.mtk.vdec.waitkeyframeforplay=9
-ro.vendor.pref_scale_enable_cfg=1
 
 # MediaTek
 ro.vendor.mediatek.version.branch=alps-mp-s0.mp1.tc8sp2-mt6833
