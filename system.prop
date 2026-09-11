@@ -84,3 +84,12 @@ ro.zram.periodic_wb_delay_hours=24
 debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
 renderthread.skia.reduceopstasksplitting=true
+
+# lmkd: without ro.config.low_ram, lmkd takes DEF_THRASHING=100, so it does not
+# treat the system as thrashing until the refault ratio reaches 100%. In
+# practice that means seconds of heavy swapping, with system_server locks held
+# and the UI frozen, before anything is killed. 30 is the value AOSP applies to
+# memory constrained devices (DEF_THRASHING_LOWRAM).
+ro.lmk.thrashing_limit=30
+# React when less than 20% of zram is free instead of the 10% default
+ro.lmk.swap_free_low_percentage=20
