@@ -141,9 +141,6 @@ persist.vendor.connsys.fm_short_antenna_support=1
 # Fingerprint
 persist.vendor.fingerprint.type=rear
 
-# FRP
-ro.frp.pst=/dev/block/platform/bootdevice/by-name/frp
-
 # GNSS
 ro.vendor.system.mtk_mapi_support=1
 ro.vendor.mtk_wapi_support=1
