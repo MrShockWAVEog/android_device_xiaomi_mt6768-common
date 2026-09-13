@@ -85,11 +85,13 @@ debug.renderengine.backend=skiaglthreaded
 debug.hwui.renderer=skiagl
 renderthread.skia.reduceopstasksplitting=true
 
-# lmkd: without ro.config.low_ram, lmkd takes DEF_THRASHING=100, so it does not
-# treat the system as thrashing until the refault ratio reaches 100%. In
-# practice that means seconds of heavy swapping, with system_server locks held
-# and the UI frozen, before anything is killed. 30 is the value AOSP applies to
-# memory constrained devices (DEF_THRASHING_LOWRAM).
-ro.lmk.thrashing_limit=30
-# React when less than 20% of zram is free instead of the 10% default
-ro.lmk.swap_free_low_percentage=20
+# lmkd is left at AOSP defaults on purpose. Two earlier overrides here,
+# ro.lmk.thrashing_limit=30 and ro.lmk.swap_free_low_percentage=20, made it
+# far more trigger-happy than stock: DEF_THRASHING is 100 for a device that
+# does not set ro.config.low_ram, and DEF_LOW_SWAP is 10. zram on merlinx
+# sits between 1% and 20% free during normal use, so a 20% 'low swap' line is
+# true almost permanently. Together they killed the foreground app:
+#   lmkd: Kill 'com.zhiliaoapp.musically' ... reason: device is low on swap
+#         (186572kB < 274440kB) and thrashing (31%)
+# Both numbers in that message are the overrides, not stock thresholds.
+

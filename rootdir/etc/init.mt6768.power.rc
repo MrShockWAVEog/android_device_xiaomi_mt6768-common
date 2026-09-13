@@ -26,11 +26,25 @@ on init
     write /sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us 1000
     write /sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us 10000
     
-    # update cpus for cpuset cgroup
-    write /dev/cpuset/foreground/cpus 0-2,4-7
+    # Update cpus for cpuset cgroup.
+    #
+    # mt6768 is 6 LITTLE (cpu0-5, capacity 516) + 2 big (cpu6-7, capacity
+    # 1024). The values this file arrived with describe a 4+4 layout, where
+    # LITTLE is 0-3 and big is 4-7: foreground skipped cpu3 for no reason here,
+    # and background was left with cpu0-1, two of the six LITTLE cores, for
+    # more than a thousand tasks.
+    #
+    # The symptom was cpu pressure sitting around 35% with the CPU otherwise
+    # idle, which only happens when tasks are confined to a subset of cores.
+    # Foreground work that binder-calls into a background thread then waits
+    # behind that queue, which is where the multi-second lock waits and the
+    # input-dispatch ANRs came from.
+    #
+    # These match the topology, and are what init.mt6768.rc already declares.
+    write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
 
 on enable-low-power
