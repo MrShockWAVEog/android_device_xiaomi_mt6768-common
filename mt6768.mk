@@ -158,6 +158,7 @@ PRODUCT_PACKAGES += \
 
 # Properties
 include hardware/mediatek/configs/properties/vendor_logtag.mk
+include $(LOCAL_PATH)/vendor_logtag.mk
 
 # Permissions
 PRODUCT_COPY_FILES += \
