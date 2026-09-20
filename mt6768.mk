@@ -213,7 +213,6 @@ ENABLE_VENDOR_RIL_SERVICE := true
 PRODUCT_PACKAGES += \
     fstab.mt6768 \
     fstab.mt6768.ramdisk \
-    init.ago.rc \
     init.connectivity.rc \
     init.modem.rc \
     init.mt6768.rc \
