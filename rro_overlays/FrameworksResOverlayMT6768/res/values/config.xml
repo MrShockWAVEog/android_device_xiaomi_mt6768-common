@@ -362,6 +362,16 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
+    <!-- Use SystemUI for ambient display and notification pulses. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
+
+    <!-- Make always-on display available, but opt in on these LCD devices. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
+    <!-- Allow the lock screen wallpaper to remain visible in ambient mode. -->
+    <bool name="config_dozeSupportsAodWallpaper">true</bool>
+
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOffByDefault">true</bool>
