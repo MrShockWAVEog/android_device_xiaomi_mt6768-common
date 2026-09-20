@@ -1,0 +1,2 @@
+# Charging control through /sys/class/power_supply/battery/input_suspend.
+rw_dir_file(hal_lineage_health_default, sysfs_batteryinfo)
