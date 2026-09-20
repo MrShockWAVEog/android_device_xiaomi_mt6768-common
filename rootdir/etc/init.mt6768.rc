@@ -778,7 +778,8 @@ on boot
     chown root root /dev/graphics/fb0
     chmod 0666 /dev/graphics/fb0
 
-    chmod 0777 /sys/class/power_supply/battery/input_suspend
+    # Charging control HAL: 1 suspends input, 0 resumes charging.
+    chmod 0660 /sys/class/power_supply/battery/input_suspend
     chown system system /sys/class/power_supply/battery/input_suspend
 
 	chown root system /sys/class/huaqin/interface/hw_info/main0_cam
