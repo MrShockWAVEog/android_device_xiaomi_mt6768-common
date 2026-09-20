@@ -94,7 +94,8 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
-    android.hardware.health-service.mediatek-recovery
+    android.hardware.health-service.mediatek-recovery \
+    vendor.lineage.health-service.default
 
 # IMS
 $(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
