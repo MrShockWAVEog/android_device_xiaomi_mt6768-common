@@ -1,0 +1,40 @@
+// ViPER4Android app and HIDL audio-effect driver, release 2.1.0.
+android_app_import {
+    name: "ViPER4Android",
+    apk: "ViPER4Android.apk",
+    presigned: true,
+    preprocessed: true,
+    privileged: true,
+    system_ext_specific: true,
+    required: ["privapp-permissions-com.llsl.viper4android"],
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+prebuilt_etc {
+    name: "privapp-permissions-com.llsl.viper4android",
+    src: "privapp-permissions-com.llsl.viper4android.xml",
+    filename_from_src: true,
+    sub_dir: "permissions",
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libv4a_re",
+    vendor: true,
+    relative_install_path: "soundfx",
+    compile_multilib: "both",
+    arch: {
+        arm: {
+            srcs: ["armeabi-v7a/libv4a_re.so"],
+        },
+        arm64: {
+            srcs: ["arm64-v8a/libv4a_re.so"],
+        },
+    },
+    shared_libs: ["liblog", "libm", "libdl", "libc"],
+    strip: {
+        none: true,
+    },
+}
