@@ -2,9 +2,16 @@
 
 ifeq (eng,$(TARGET_BUILD_VARIANT))
 VENDOR_LOG_LEVEL := I
+VENDOR_NOISY_LOG_LEVEL := I
 else
 VENDOR_LOG_LEVEL := S
+VENDOR_NOISY_LOG_LEVEL := W
 endif
+
+# AKM fusion and modem frame diagnostics are emitted for every sample/frame.
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.log.tag.android.hardware.sensors-service.xiaomi-multihal=$(VENDOR_NOISY_LOG_LEVEL) \
+    persist.log.tag.RILMUXD=$(VENDOR_NOISY_LOG_LEVEL)
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.powerhal-libperfmgr=$(VENDOR_LOG_LEVEL) \
