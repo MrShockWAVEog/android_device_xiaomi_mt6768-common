@@ -76,8 +76,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mt6768
 TARGET_KERNEL_CONFIG := vendor/mt6768_defconfig
-TARGET_KERNEL_CLANG_VERSION := r416183b
-TARGET_KERNEL_CLANG_PATH := $(abspath .)/prebuilts/clang/kernel/$(HOST_PREBUILT_TAG)/clang-$(TARGET_KERNEL_CLANG_VERSION)
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz
@@ -98,7 +96,7 @@ BOARD_SUPER_PARTITION_GROUPS := main
 BOARD_MAIN_PARTITION_LIST := system system_ext vendor product
 
 # Reserve space for gapps install
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/voltage/config/BoardConfigReservedSize.mk
 
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -128,8 +126,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)
 
 # Sepolicy
-include device/lineage/sepolicy/libion/sepolicy.mk
-include device/mediatek/sepolicy_vndr/SEPolicy.mk
+include device/voltage/sepolicy/libion/sepolicy.mk
+include $(COMMON_PATH)/sepolicy/mediatek.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
