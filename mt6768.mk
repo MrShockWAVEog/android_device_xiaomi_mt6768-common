@@ -59,9 +59,11 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth-service.mediatek
 
 # Cgroup
+# Keep the system profiles and add compatibility names for Google's scheduler
+# QoS requests. MT6768 has no vendor_sched QoS interface; ADPF still uses uclamp.
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_30.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
-    system/core/libprocessgroup/profiles/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+    $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
 # Chipinfo
 PRODUCT_PACKAGES += \
@@ -215,6 +217,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += persist.vendor.recovery_update=true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Rootdir
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.mt6768.configstore.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/zz.mt6768.configstore.rc
+
 PRODUCT_PACKAGES += \
     fstab.mt6768 \
     fstab.mt6768.ramdisk \
