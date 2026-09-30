@@ -15,6 +15,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 PRODUCT_VENDOR_PROPERTIES += \
     persist.log.tag.powerhal-libperfmgr=$(VENDOR_LOG_LEVEL) \
+    persist.log.tag.Light=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.AAL=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.Accelerometer=$(VENDOR_LOG_LEVEL) \
     persist.log.tag.fpc_tac=$(VENDOR_LOG_LEVEL) \

@@ -1,0 +1,11 @@
+# SurfaceFlinger uses ro.surface_flinger.* properties on this device. The
+# obsolete configstore service has no VINTF entry and aborts every five seconds.
+# Install as zz.mt6768.configstore.rc so it is parsed after the inherited
+# android.hardware.configstore@1.1-service.rc in vendor/etc/init.
+service vendor.configstore-hal /vendor/bin/hw/android.hardware.configstore@1.1-service
+    override
+    class hal animation
+    user system
+    group system
+    disabled
+    oneshot

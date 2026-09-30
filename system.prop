@@ -19,10 +19,10 @@ dalvik.vm.dex2oat64.enabled=true
 
 # Display
 config.svi.path=/system/etc/SVIConfig.xml
-debug.svi.logs=1
-debug.als.logs=1
+debug.svi.logs=0
+debug.als.logs=0
 config.svi.xml=1
-config.svi.xml.print=1
+config.svi.xml.print=0
 
 # FM Radio
 persist.internalAntenna.enable=true
