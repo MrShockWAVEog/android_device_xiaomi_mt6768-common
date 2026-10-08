@@ -100,8 +100,7 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
-    android.hardware.health-service.mediatek-recovery \
-    vendor.lineage.health-service.default
+    android.hardware.health-service.mediatek-recovery
 
 # IMS
 $(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
@@ -249,7 +248,7 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel/pixelstats \
     hardware/google/pixel/power-libperfmgr \
     hardware/google/pixel/thermal \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/clover/interfaces/power-libperfmgr \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
     hardware/xiaomi \
@@ -287,3 +286,6 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mt6768-common/mt6768-common-vendor.mk)
+
+CLOVER_MAINTAINER := MrShockWAVEog
+WITH_GMS := false
