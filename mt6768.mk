@@ -285,3 +285,26 @@ PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/mt6768-common/mt6768-common-vendor.mk)
+
+TARGET_DISABLE_EPPE := true
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Maintainer name (use "_" for spaces, e.g., "rmp_22" → "rmp 22" in UI)
+AXION_MAINTAINER := MrShockWAVEog
+
+# Processor name (use "_" for spaces)
+AXION_PROCESSOR := Helio_G85
+TARGET_ENABLE_BLUR := true
+TARGET_INCLUDES_LOS_PREBUILTS := true
+TARGET_INCLUDE_AXFX := true
+BYPASS_CHARGE_SUPPORTED := true
+PRODUCT_NO_CAMERA := false
+
+# doze flags
+# for devices with doze/sensor related issues 
+TARGET_NEEDS_DOZE_FIX := true
+# doze gestures
+TARGET_DOZE_TAP_PULSE_SUPPORTED ?= true
+TARGET_DOZE_DOUBLE_TAP_PULSE_SUPPORTED ?= true
+TARGET_DOZE_PICKUP_PULSE_SUPPORTED ?= true
+TARGET_DOZE_SIDE_FPS_PULSE_SUPPORTED ?= true
