@@ -1,4 +1,1 @@
 allow hal_audio_default persist_data_file:dir search;
-
-# ViPER4Android RE audio processing.
-allow hal_audio_default self:process execmem;
