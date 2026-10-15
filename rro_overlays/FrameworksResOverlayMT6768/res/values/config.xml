@@ -29,6 +29,13 @@
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
+    <!-- SystemUI doze service used for ambient display and notification pulses. -->
+    <string name="config_dozeComponent" translatable="false">com.android.systemui/.doze.DozeService</string>
+
+    <!-- Expose ambient display controls for this device. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+    <bool name="config_dozePulsePickup">true</bool>
+
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
          The default is false. -->
