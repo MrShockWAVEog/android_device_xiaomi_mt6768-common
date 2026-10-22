@@ -41,11 +41,6 @@ sys.ipo.disable=1
 sys.ipo.pwrdncap=2
 ro.iorapd.enable=false
 
-# Low memory killer
-ro.lmk.lowmem_min_oom_score=1001
-ro.lmk.relaxed_available_memory=true
-ro.lmk.swap_free_low_percentage=20
-
 # Logging
 persist.sys.mdlog_dumpback=2
 
