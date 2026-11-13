@@ -20,12 +20,6 @@ on init
     # Configure governor settings for big cluster
     write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor "schedutil"
 
-    # Configure scheduler up/down_rate_limit_us
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us 500
-    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us 20000
-    write /sys/devices/system/cpu/cpufreq/policy6/schedutil/up_rate_limit_us 1000
-    write /sys/devices/system/cpu/cpufreq/policy6/schedutil/down_rate_limit_us 10000
-    
     # update cpus for cpuset cgroup
     write /dev/cpuset/foreground/cpus 0-2,4-7
     write /dev/cpuset/foreground/boost/cpus 0-7
@@ -39,6 +33,18 @@ on post-fs
     setprop dalvik.vm.dex2oat-threads 4
 
 on enable-low-power
+    # MT6768 exposes shared governor tunables for both CPU clusters.
+    # Apply after boot, when cpufreq sysfs nodes are available.
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpufreq/policy6/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 10000
+    # Enable the kernel's 8 ms ondemand-style saturation boost.
+    write /sys/devices/system/cpu/cpufreq/schedutil/load_boost 1
+
+    # Match ondemand task placement while retaining schedutil frequency scaling.
+    write /proc/sys/kernel/sched_energy_aware 0
+
     # Runtime FS tuning
     # we should adjust the setting upon boot_complete for runtime performance
     write /sys/block/mmcblk0/queue/iostats 1
@@ -97,9 +103,9 @@ on enable-low-power
     write /dev/cpuctl/camera-daemon/cpu.uclamp.min 0
     write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
 
-    # Uclamp tuning
-    write /proc/sys/kernel/sched_util_clamp_min_rt_default 96
-    write /proc/sys/kernel/sched_util_clamp_min 128
+    # Allow the full range of per-task and cgroup minimum-utilization hints.
+    # sched_util_clamp_min is a ceiling on requested boosts, not an idle floor.
+    write /proc/sys/kernel/sched_util_clamp_min 1024
 
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
