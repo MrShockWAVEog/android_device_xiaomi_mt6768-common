@@ -1,0 +1,2 @@
+prebuilt/LeicaCameraMT6768/*.apk filter=lfs diff=lfs merge=lfs -text
+prebuilt/LeicaCameraMT6768/lib/arm64/*.so filter=lfs diff=lfs merge=lfs -text
