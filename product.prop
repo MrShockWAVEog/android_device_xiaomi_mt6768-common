@@ -1,3 +1,9 @@
+# MistOS About phone
+ro.mist.display=1080 x 2340, 60 Hz
+ro.mist.battery=5020 mAh
+ro.mist.platform=MT6768
+ro.mist.screen=6.53-inch IPS LCD
+
 # eBPF
 ro.bpf.kver_override=5.10.239
 
